@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Little Space 🌹</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(180deg, #fdf2f8 0%, #f5e8d3 100%);
+            overflow-x: hidden;
+        }
+        
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(rgba(128, 0, 32, 0.75), rgba(128, 0, 32, 0.85)), url('https://picsum.photos/id/1015/2000/1200');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 25px 50px -12px rgb(248 193 210);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .heart {
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- MUSIK LATAR -->
+    <audio id="bgMusic" loop>
+        <source src="https://www.chosic.com/wp-content/uploads/2023/04/Keys-of-Moon-Warm-Memories.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- TOMBOL MUSIK -->
+    <button onclick="toggleMusic()" 
+            id="musicBtn"
+            class="fixed bottom-8 right-8 z-50 bg-white shadow-2xl hover:bg-pink-100 w-14 h-14 rounded-full flex items-center justify-center text-2xl transition-all border border-pink-200">
+        <i class="fas fa-music"></i>
+    </button>
+
+    <!-- HERO -->
+    <section id="hero" class="hero-bg min-h-screen flex items-center justify-center relative text-white">
+        <div class="absolute inset-0 bg-black/30"></div>
+        <div class="max-w-2xl mx-auto text-center px-6 relative z-10">
+            <div class="mb-8 flex justify-center">
+                <div class="text-7xl heart">❤️</div>
+            </div>
+            <h1 class="heading-font text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                Sayang,<br>I put a lot an effort for this<br>wanna open it?
+            </h1>
+            <p class="text-xl md:text-2xl mb-12 text-pink-100 max-w-md mx-auto">
+                This is just a simple gift for you. Hope you like it!
+            </p>
+            
+            <button onclick="enterWebsite()" 
+                    class="group relative inline-flex items-center gap-3 bg-white text-rose-800 px-10 py-5 rounded-3xl text-lg font-medium hover:bg-pink-100 transition-all duration-300 shadow-xl">
+                <span>Open this cute box</span>
+                <i class="fas fa-arrow-right group-active:translate-x-2 transition"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <div id="main-content" class="hidden">
+
+        <!-- NAV -->
+        <nav class="sticky top-0 bg-white/90 backdrop-blur-md z-50 border-b border-pink-200">
+            <div class="max-w-5xl mx-auto px-6 py-5 flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <span class="text-3xl">🌹</span>
+                    <span class="heading-font text-2xl font-semibold text-rose-800">Our Space</span>
+                </div>
+                <div class="flex gap-8 text-sm font-medium">
+                    <a href="#journey" onclick="smoothScrollTo('journey')" class="hover:text-rose-600 transition">Love's Journey</a>
+                    <a href="#moments" onclick="smoothScrollTo('moments')" class="hover:text-rose-600 transition">Moment</a>
+                    <a href="#things" onclick="smoothScrollTo('things')" class="hover:text-rose-600 transition">The Why's</a>
+                    <a href="#letter" onclick="smoothScrollTo('letter')" class="hover:text-rose-600 transition">Letter</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- JOURNEY -->
+        <section id="journey" class="py-24 bg-white">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="heading-font text-5xl mt-4 mb-3">Love's Journey</h2>
+                </div>
+                <div class="space-y-20">
+                    <div class="flex flex-col md:flex-row gap-8 items-center fade-in">
+                        <div class="md:w-1/2">
+                            <div class="bg-rose-50 p-8 rounded-3xl card-hover">
+                                <h3 class="text-2xl font-semibold mb-3">First time we met</h3>
+                                <p class="text-gray-600 leading-relaxed">Did you remember? Hari itu kita tidak saling mengenal, bahkan untuk menyadari keberadaan satu sama lain pun rasanya tidak mungkin. Namun siapa sangka, pertemuan tidak disengaja itu yang menuntun kita berada di tempat ini. I Meet the right person at the random place"❤️.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tambahkan cerita lain sesuai keinginanmu -->
+                </div>
+            </div>
+        </section>
+
+        <!-- MOMENTS -->
+        <section id="moments" class="py-24 bg-gradient-to-b from-pink-50 to-white">
+            <div class="max-w-5xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="heading-font text-5xl mb-3">The most moment that I like</h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="memory-item bg-white p-8 rounded-3xl shadow-sm card-hover">
+                        <p class="italic text-gray-600">"Ingat gak? Aku pernah ngasih kamu donat j.co dan kimbap yang aku buat sendiri. Fakta bahwa kamu menerima sesuatu yang aku buat sendiri, sudah menjadi bukti bahwa kamu memang punya tempat spesial di hati. Cause, I've never done this before to anyone"</p>
+                    </div>
+                    <!-- Tambahkan 2 card lagi sesuai keinginan -->
+                </div>
+            </div>
+        </section>
+
+        <!-- THINGS I LOVE -->
+        <section id="things" class="py-24 bg-white">
+            <div class="max-w-4xl mx-auto px-6">
+                <h2 class="heading-font text-5xl text-center mb-12">The Reason Why I love you</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="cursor-pointer bg-gradient-to-br from-rose-50 to-pink-50 p-8 rounded-3xl hover:shadow-xl transition-all">
+                        <p class="text-2xl">"Ungkapan "I love man with pretty brain" rasanya sangat mewakilkan perasaan aku ke kamu</p>
+                    </div>
+                    <!-- Tambahkan lagi sesuai keinginan -->
+                </div>
+            </div>
+        </section>
+
+        <!-- LOVE LETTER -->
+        <section id="letter" class="py-28 bg-gradient-to-br from-rose-800 to-pink-900 text-white">
+            <div class="max-w-3xl mx-auto px-6 text-center">
+                <div id="envelope" class="mx-auto w-64 h-64 bg-white rounded-2xl shadow-2xl p-8 cursor-pointer mb-12" onclick="openEnvelope(this)">
+                    <div class="h-full border-2 border-dashed border-rose-300 rounded-xl flex items-center justify-center flex-col">
+                        <i class="fas fa-envelope text-6xl text-rose-300 mb-4"></i>
+                        <p class="text-rose-400 font-medium">Klik untuk baca suratnya</p>
+                    </div>
+                </div>
+                
+                <div id="letter-content" class="hidden">
+                    <h2 class="heading-font text-4xl mb-10">Sayangku,</h2>
+                    <div class="space-y-8 text-lg leading-relaxed text-pink-100 text-left max-w-2xl mx-auto">
+                        <p>One month down, and already so many precious memories. We still have a long road ahead, filled with challenges, memories, and countless moments to share. I hope we always remain each other's safe place, growing together through every season of life. Here's to counting many more months together—months that I hope never stop adding up. ❤️</p>
+                        <p class="pt-6 font-medium">I love you. For now, tomorrow, the day after tomorrow, and forever.</p>
+                        <div class="pt-8 text-right">
+                            <p>Genuinely,</p>
+                            <p class="text-2xl mt-1">I feel so lucky to have you</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SURPRISE -->
+       <!-- SURPRISE SECTION - DENGAN FOTO -->
+<section id="surprise" class="py-32 bg-white hidden">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+        
+        <!-- Tombol Kejutan -->
+        <button onclick="revealSurprise()" id="surpriseBtn"
+                class="mb-12 bg-gradient-to-r from-pink-500 to-rose-600 text-white px-14 py-6 rounded-3xl text-xl font-medium shadow-xl hover:scale-105 transition">
+            ✨ Buka Kejutan Foto ✨
+        </button>
+
+        <!-- Bagian yang muncul setelah diklik -->
+        <div id="surpriseContent" class="hidden transition-all duration-700">
+            <div class="mx-auto max-w-2xl rounded-3xl overflow-hidden shadow-2xl">
+                <img src="https://i.imgur.com/Hkl6PVx.jpeg" 
+                     alt="Our Memory"
+                     class="w-full h-auto">
+            </div>
+            <p class="mt-8 text-xl italic text-rose-600 max-w-xl mx-auto">
+                The little memory of us💕
+            </p>
+        </div>
+    </div>
+</section>
+        <!-- FOOTER -->
+        <footer class="bg-rose-900 text-white py-16 text-center">
+            <p class="text-3xl mb-3">❤️</p>
+            <p>Happy one monthiversarry, Sayangku • 15 June 2026</p>
+        </footer>
+    </div>
+
+      <script>
+        const audio = document.getElementById('bgMusic');
+        const musicBtn = document.getElementById('musicBtn');
+        let isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                audio.pause();
+                musicBtn.innerHTML = `<i class="fas fa-music"></i>`;
+            } else {
+                audio.play();
+                musicBtn.innerHTML = `<i class="fas fa-pause"></i>`;
+            }
+            isPlaying = !isPlaying;
+        }
+
+        function enterWebsite() {
+            document.getElementById('hero').classList.add('hidden');
+            document.getElementById('main-content').classList.remove('hidden');
+           
+            setTimeout(() => {
+                audio.play().catch(() => {});
+                isPlaying = true;
+                musicBtn.innerHTML = `<i class="fas fa-pause"></i>`;
+            }, 500);
+            setTimeout(() => {
+                document.querySelectorAll('.fade-in').forEach((el, i) => {
+                    setTimeout(() => el.classList.add('visible'), i * 200);
+                });
+            }, 600);
+        }
+
+        function smoothScrollTo(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function openEnvelope(el) {
+            el.style.transition = 'transform 0.8s';
+            el.style.transform = 'rotateX(180deg)';
+            setTimeout(() => {
+                document.getElementById('letter-content').classList.remove('hidden');
+                el.style.display = 'none';
+            }, 700);
+        }
+
+        // ================== FUNGSI KEJUTAN FOTO ==================
+        function revealSurprise() {
+            const surprise = document.getElementById('surprise');
+            const content = document.getElementById('surpriseContent');
+            const btn = document.getElementById('surpriseBtn');
+
+            surprise.classList.remove('hidden');
+            content.classList.remove('hidden');
+            btn.style.display = 'none';
+
+            confettiBurst();
+        }
+
+        function confettiBurst() {
+            const emojis = ['❤️','💖','🌹','✨','💕'];
+            for(let i = 0; i < 120; i++) {
+                setTimeout(() => {
+                    const c = document.createElement('div');
+                    c.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+                    c.style.position = 'fixed';
+                    c.style.left = Math.random() * 100 + 'vw';
+                    c.style.top = '-50px';
+                    c.style.fontSize = '2.5rem';
+                    c.style.zIndex = '9999';
+                    document.body.appendChild(c);
+
+                    setTimeout(() => {
+                        c.style.transition = 'all 4s';
+                        c.style.transform = `translateY(${window.innerHeight + 200}px) rotate(${Math.random()*1500}deg)`;
+                        c.style.opacity = '0';
+                    }, 100);
+                    setTimeout(() => c.remove(), 5000);
+                }, i * 8);
+            }
+        }
+
+        // Auto reveal surprise saat scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 800) {
+                document.getElementById('surprise').classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
